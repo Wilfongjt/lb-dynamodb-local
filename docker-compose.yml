@@ -1,0 +1,26 @@
+# todo: setup amazon/dynamodb-local
+# todo: setup api example
+
+version: '3'
+
+services:
+  #############
+  # DynamoDB-Local
+  #########
+  db:
+    image: amazon/dynamodb-local
+    hostname: dynamodb-local
+    container_name: dynamodb-local
+    ports:
+      - "8042:8000"
+
+    networks:
+      - dynamo-backend
+    restart: always
+
+ 
+networks:
+  dynamo-backend:
+    driver: bridge
+
+# AAD
